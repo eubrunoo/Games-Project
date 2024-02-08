@@ -1,0 +1,63 @@
+import os
+import random
+
+def jogar():
+    num_secreto = random.randrange(1, 100)
+
+    os.system('cls')
+    print('-----------------------------------')
+    print('\033[92mBEM-VINDO AO JOGO DO NÚMERO SECRETO\033[0m')
+    print('-----------------------------------')
+
+    total_tentativas = 0
+
+    print('Escolha a difuldade do jogo:\n')
+
+    print('''\033[92m
+          (1)Fácil
+          (2)Médio
+          (3)Difícil\033[0m\n
+          ''')
+    
+    dificuldade = int(input('Dificuldade: '))
+
+    if(dificuldade == 1):
+        total_tentativas = 20
+
+    elif(dificuldade == 2):
+        total_tentativas = 10
+
+    elif(dificuldade == 3):
+        total_tentativas = 5
+
+    else:
+        os.system('cls')
+        print('\033[91mOpção inválida\033[0m')
+        input('\n\033[92mPressione Enter para recomeçar...\033[0m')
+        os.system('cls')
+        jogar()
+
+    tentativa_atual = total_tentativas
+    print(num_secreto)
+    while(tentativa_atual > 0):
+        print(f'Número de tentativas restantes: \033[91m{tentativa_atual}\033[0m de {total_tentativas}\n')
+
+        num_escolhido = int(input('Escolha um valor:\033[92m '))
+        print('\033[0m')
+
+        if(num_escolhido == num_secreto):
+            print('\n\033[92mVocê acertou, parabéns!\033[0m\n')
+            break
+
+        else:
+            tentativa_atual -= 1
+            print('Valor incorreto')
+            print('---------------\n')
+            continue
+        
+    
+
+
+
+if __name__ == "__main__":
+    jogar()
