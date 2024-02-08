@@ -55,7 +55,7 @@ def jogar():
     while(condicao):
         print(f'Número de tentativas restantes: \033[91m{tentativa_atual}\033[0m de {total_tentativas}\n')
 
-        num_escolhido = int(input('Escolha um valor:\033[92m '))
+        num_escolhido = int(input('Escolha um valor entre 0 e 100:\033[92m '))
         print('\033[0m')
 
         if(num_escolhido == num_secreto):
@@ -63,6 +63,7 @@ def jogar():
             condicao = False
         
         elif(num_escolhido != num_secreto):
+            tentativa_atual -= 1
             print('Valor incorreto')
             print('---------------\n')
 
@@ -74,7 +75,7 @@ def jogar():
 
             continue
         
-        tentativa_atual -= 1
+        
     
 
 
